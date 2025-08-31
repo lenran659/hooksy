@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "pre-commit": "lefthook run pre-commit",
+    "commit-msg": "lefthook run commit-msg",
+    "pre-push": "lefthook run pre-push"
+  }
+}

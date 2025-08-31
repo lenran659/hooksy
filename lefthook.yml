@@ -1,0 +1,30 @@
+# Lefthook configuration file
+# https://github.com/evilmartians/lefthook
+
+# Pre-commit hook
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: pnpm lint
+    type-check:
+      glob: "*.{ts,tsx}"
+      run: pnpm type-check
+    test:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: pnpm test --run
+
+# Commit-msg hook
+commit-msg:
+  commands:
+    lint-commit:
+      run: npx commitlint --edit $1
+
+# Pre-push hook
+pre-push:
+  commands:
+    test:
+      run: pnpm test --run
+    build:
+      run: pnpm build:prod 
