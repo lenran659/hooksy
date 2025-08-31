@@ -19,12 +19,7 @@
     "hooks:install": "lefthook install",
     "hooks:uninstall": "lefthook uninstall"
   },
-  "keywords": [
-    "react",
-    "hooks",
-    "typescript",
-    "frontend"
-  ],
+  "keywords": ["react", "hooks", "typescript", "frontend"],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.15.0",

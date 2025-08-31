@@ -36,7 +36,8 @@
         "noExcessiveCognitiveComplexity": "warn"
       },
       "nursery": {
-        "useImportType": "error"
+        "useImportRestrictions": "error",
+        "useSortedClasses": "error"
       }
     }
   },
