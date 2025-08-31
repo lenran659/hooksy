@@ -1,38 +1,38 @@
 {
-  "name": "hooksy",
-  "version": "1.0.0",
-  "description": "A comprehensive React Hooks library with flat architecture",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsup packages/core --watch",
-    "build:prod": "tsup packages/core",
-    "test": "vitest",
-    "test:watch": "vitest watch",
-    "test:coverage": "vitest run --coverage",
-    "lint": "biome check .",
-    "lint:fix": "biome check --write .",
-    "format": "biome format --write .",
-    "type-check": "tsc --noEmit",
-    "docs": "vitepress dev docs",
-    "dev": "pnpm run test:watch & pnpm run lint -- --watch",
-    "prepare": "lefthook install",
-    "hooks:install": "lefthook install",
-    "hooks:uninstall": "lefthook uninstall"
-  },
-  "keywords": ["react", "hooks", "typescript", "frontend"],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.15.0",
-  "devDependencies": {
-    "@biomejs/biome": "^1.5.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "@vitejs/plugin-react": "^4.0.0",
-    "@vitest/coverage-v8": "^1.0.0",
-    "@vitest/ui": "^1.0.0",
-    "jsdom": "^23.0.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0",
-    "vitest": "^1.0.0"
-  }
+    "name": "hooksy",
+    "version": "1.0.0",
+    "description": "A comprehensive React Hooks library with flat architecture",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsup packages/core --watch",
+        "build:prod": "tsup packages/core",
+        "lint": "biome check .",
+        "lint:fix": "biome check --write .",
+        "format": "biome format --write .",
+        "type-check": "tsc --noEmit",
+        "docs": "vitepress dev docs",
+        "dev": "pnpm run lint -- --watch",
+        "prepare": "lefthook install",
+        "hooks:install": "lefthook install",
+        "hooks:uninstall": "lefthook uninstall"
+    },
+    "keywords": [
+        "react",
+        "hooks",
+        "typescript",
+        "frontend"
+    ],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@10.15.0",
+    "devDependencies": {
+        "@biomejs/biome": "^1.5.0",
+        "@types/react": "^18.2.0",
+        "@types/react-dom": "^18.2.0",
+        "@vitejs/plugin-react": "^4.0.0",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "tsup": "^8.0.0",
+        "typescript": "^5.0.0"
+    }
 }

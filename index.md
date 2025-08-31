@@ -30,14 +30,11 @@ hooksy/
 │ │ └── utils/ # 工具函数
 │ │ └── ...
 │ │
-│ ├── tests/ # 单元测试 (直接导入 @hooksy/core)
-│ │
 │ ├── docs/ # 文档
 │ │
 │ ├── package.json # 核心包配置
 │ └── tsconfig.json # TypeScript 配置
 │
-├── vitest.config.ts # Vitest 全局配置
 ├── tsup.config.ts # 构建配置
 ├── package.json # 根项目配置
 └── README.md # 项目介绍
@@ -66,13 +63,7 @@ hooks/
 ├── utils/ # 工具
 └── effect/ # 副作用
 
-3. 测试架构优化
 
-• 统一导入：测试文件直接使用 import { useXXX } from "@hooksy/core"
-
-• 扁平测试目录：所有测试文件在 packages/core/tests/ 下
-
-• TDD 友好：每个测试文件对应一个或多个相关 Hooks
 
 三、关键文件内容示例
 
@@ -103,9 +94,6 @@ hooks/
 },
 "scripts": {
 "build": "tsup",
-"test": "vitest",
-"test:watch": "vitest watch",
-"test:coverage": "vitest run --coverage",
 "lint": "eslint src --ext .ts,.tsx",
 "type-check": "tsc --noEmit"
 },
@@ -138,86 +126,9 @@ export { useDebounce } from './hooks/effect/useDebounce'
 
 3. 测试文件示例 (直接导入 @hooksy/core)
 
-// packages/core/tests/useToggle.test.ts
-import { describe, it, expect, vi } from 'vitest'
-import { renderHook, act } from '@testing-library/react-hooks'
-import { useToggle } from '@hooksy/core' // 直接从核心包导入
 
-describe('useToggle', () => {
-it('should initialize with default value false', () => {
-const { result } = renderHook(() => useToggle())
-expect(result.current[0]).toBe(false)
-})
 
-it('should toggle state when toggle function is called', () => {
-const { result } = renderHook(() => useToggle())
 
-    act(() => {
-      result.current[1]() // toggle
-    })
-    expect(result.current[0]).toBe(true)
-
-    act(() => {
-      result.current[1]()
-    })
-    expect(result.current[0]).toBe(false)
-
-})
-
-it('should set state to specific value', () => {
-const { result } = renderHook(() => useToggle())
-
-    act(() => {
-      result.current[2](true) // set(true)
-    })
-    expect(result.current[0]).toBe(true)
-
-    act(() => {
-      result.current[2](false) // set(false)
-    })
-    expect(result.current[0]).toBe(false)
-
-})
-})
-
-4. Vitest 全局配置 (vitest.config.ts)
-
-import { defineConfig } from 'vitest/config'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
-
-export default defineConfig({
-plugins: [react()],
-test: {
-environment: 'jsdom',
-globals: true,
-setupFiles: ['./packages/core/tests/setup.ts'],
-coverage: {
-provider: 'v8',
-reporter: ['text', 'json', 'html'],
-thresholds: {
-lines: 80,
-functions: 80,
-branches: 80,
-statements: 80
-}
-},
-include: [
-'packages/core/tests/**/*.test.ts',
-'packages/core/tests/**/*.spec.ts'
-],
-exclude: [
-'**/node_modules/**',
-'**/dist/**'
-],
-resolve: {
-alias: {
-'@hooksy/core': resolve(\_\_dirname, 'packages/core/src'),
-// 可以添加更多别名以支持其他包的测试
-}
-}
-}
-})
 
 5. TypeScript 配置 (tsconfig.json)
 
@@ -245,7 +156,6 @@ alias: {
 },
 "include": [
 "packages/core/src/**/*",
-"packages/core/tests/**/*",
 "packages/core/types/**/*"
 ],
 "exclude": ["node_modules", "dist"]
@@ -259,26 +169,15 @@ alias: {
 "scripts": {
 "build": "tsup packages/core --watch",
 "build:prod": "tsup packages/core",
-"test": "vitest",
-"test:watch": "vitest watch",
-"test:coverage": "vitest run --coverage",
 "lint": "eslint packages/core/src --ext .ts,.tsx",
 "type-check": "tsc --noEmit",
 "docs": "vitepress dev docs",
-"dev": "pnpm run test:watch & pnpm run lint -- --watch",
+"dev": "pnpm run lint -- --watch",
 "prepare": "husky install"
 }
 }
 
-2. TDD 开发流程
 
-1. 选择功能分类 (如: sensor/ 鼠标相关)
-1. 创建 Hook 文件 (如: useMouse.ts)
-1. 创建测试文件 (如: useMouse.test.ts)
-1. 先写测试用例 (TDD Red 阶段)
-1. 运行测试 (应该失败)
-1. 实现最小功能 (Green 阶段)
-1. 重构优化 (Refactor 阶段)
 
 五、架构优势总结
 
@@ -298,13 +197,7 @@ alias: {
 
 • ✅ 便于开发者查找和使用相关功能
 
-3. TDD 友好
 
-• ✅ 测试文件直接导入核心包
-
-• ✅ 每个测试对应具体功能
-
-• ✅ 支持测试驱动开发流程
 
 4. Tree Shaking 优化
 

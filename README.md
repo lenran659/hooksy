@@ -6,7 +6,7 @@ A comprehensive React Hooks library with flat architecture.
 
 - 🎯 **Flat Architecture**: Simple and intuitive hook organization
 - 🚀 **TypeScript First**: Built with TypeScript for better developer experience
-- 🧪 **Comprehensive Testing**: Full test coverage with Vitest
+
 - 📦 **Monorepo Structure**: Organized as a monorepo using pnpm workspaces
 - 🔧 **Modern Tooling**: Uses Biome for linting and formatting
 
@@ -31,8 +31,7 @@ pnpm hooks:install
 
 ```bash
 # Development
-pnpm dev              # Run tests and linting in watch mode
-pnpm test:watch       # Run tests in watch mode
+pnpm dev              # Run linting in watch mode
 
 # Building
 pnpm build            # Build with watch mode
@@ -44,9 +43,7 @@ pnpm lint:fix         # Fix linting issues
 pnpm format           # Format code
 pnpm type-check       # TypeScript type checking
 
-# Testing
-pnpm test             # Run tests once
-pnpm test:coverage    # Run tests with coverage
+
 
 # Documentation
 pnpm docs             # Start documentation server
@@ -63,10 +60,8 @@ This project uses [Lefthook](https://github.com/evilmartians/lefthook) for Git h
 ### Pre-commit Hook
 - Runs linting on staged files
 - Performs TypeScript type checking
-- Runs tests on staged files
 
 ### Pre-push Hook
-- Runs all tests
 - Builds the project to ensure no build errors
 
 ### Commit-msg Hook
@@ -86,7 +81,7 @@ Hooksy/
 │       │   └── index.ts
 │       └── package.json
 ├── docs/               # Documentation
-├── test/               # Test files
+
 ├── lefthook.yml        # Git hooks configuration
 └── package.json        # Root package configuration
 ```
@@ -96,7 +91,7 @@ Hooksy/
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Ensure all tests pass and code is properly formatted
+4. Ensure code is properly formatted
 5. Submit a pull request
 
 ## License

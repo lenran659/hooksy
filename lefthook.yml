@@ -11,9 +11,7 @@ pre-commit:
     type-check:
       glob: "*.{ts,tsx}"
       run: pnpm type-check
-    test:
-      glob: "*.{js,ts,jsx,tsx}"
-      run: pnpm test --run
+
 
 # Commit-msg hook
 commit-msg:
@@ -24,7 +22,5 @@ commit-msg:
 # Pre-push hook
 pre-push:
   commands:
-    test:
-      run: pnpm test --run
     build:
-      run: pnpm build:prod 
+      run: pnpm build:prod

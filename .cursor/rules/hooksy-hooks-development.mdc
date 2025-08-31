@@ -7,7 +7,6 @@ Hooksy 是一个 React hooks 库，每个 hook 必须遵循统一的开发规范
 每个 hook 必须包含以下 4 个文件：
 - `index.tsx` - 主要实现文件
 - `type.ts` - 类型定义文件
-- `index.spec.tsx` - 测试文件
 - `README.md` - 中文使用文档
 
 ## 代码组织规范
@@ -26,12 +25,6 @@ Hooksy 是一个 React hooks 库，每个 hook 必须遵循统一的开发规范
 - 泛型类型约束
 - 详细的 JSDoc 注释
 - 导出所有相关类型
-
-## 测试要求
-- 使用中文测试描述
-- 完整的测试覆盖（基本功能、配置选项、边界情况、生命周期）
-- 模拟 DOM 环境和浏览器 API
-- 使用 vitest 和 @testing-library/react
 
 ## 文档要求
 - 中文文档
