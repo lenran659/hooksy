@@ -1,54 +1,60 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.5.0/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
-  "files": {
-    "ignoreUnknown": false,
-    "ignore": ["node_modules/**", "dist/**", "coverage/**", "*.min.js", "*.bundle.js"]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2,
-    "lineWidth": 100,
-    "lineEnding": "lf"
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "correctness": {
-        "noUnusedVariables": "error"
-      },
-      "suspicious": {
-        "noExplicitAny": "warn",
-        "noArrayIndexKey": "error"
-      },
-      "style": {
-        "useConst": "error",
-        "useTemplate": "error",
-        "useShorthandArrayType": "error"
-      },
-      "complexity": {
-        "noExcessiveCognitiveComplexity": "warn"
-      },
-      "nursery": {
-        "useImportRestrictions": "error",
-        "useSortedClasses": "error"
-      }
-    }
-  },
-  "javascript": {
+    "$schema": "https://biomejs.dev/schemas/1.5.0/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "files": {
+        "ignoreUnknown": false,
+        "ignore": [
+            "node_modules/**",
+            "dist/**",
+            "coverage/**",
+            "*.min.js",
+            "*.bundle.js"
+        ]
+    },
     "formatter": {
-      "quoteStyle": "single",
-      "trailingCommas": "es5",
-      "semicolons": "always"
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 2,
+        "lineWidth": 100,
+        "lineEnding": "lf"
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "correctness": {
+                "noUnusedVariables": "error"
+            },
+            "suspicious": {
+                "noExplicitAny": "warn",
+                "noArrayIndexKey": "error"
+            },
+            "style": {
+                "useConst": "error",
+                "useTemplate": "error",
+                "useShorthandArrayType": "error"
+            },
+            "complexity": {
+                "noExcessiveCognitiveComplexity": "warn"
+            },
+            "nursery": {
+                "useImportRestrictions": "error",
+                "useSortedClasses": "error"
+            }
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single",
+            "trailingCommas": "es5",
+            "semicolons": "always"
+        }
+    },
+    "organizeImports": {
+        "enabled": true
     }
-  },
-  "organizeImports": {
-    "enabled": true
-  }
 }
