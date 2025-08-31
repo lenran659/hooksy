@@ -1,0 +1,52 @@
+
+# Hooksy TypeScript 文件规范
+
+## 导入规范
+```tsx
+import { useRef, useEffect, useState, useCallback } from "react";
+import type { UseHookNameOptions } from "./type";
+```
+
+## 类型定义要求
+- 所有接口必须以大写字母开头
+- 使用 `Configurable` 前缀表示可配置对象
+- 使用 `Use` + Hook名 + `Options` 格式命名选项接口
+- 为所有参数和返回值添加类型注解
+
+## 函数声明规范
+```tsx
+/**
+ * Hook 功能描述
+ * @param options 配置选项
+ */
+export function useHookName<T extends HTMLElement>(
+    options: UseHookNameOptions = {}
+): React.MutableRefObject<T | null | undefined> {
+    // 实现...
+}
+```
+
+## 状态管理模式
+```tsx
+// 内部状态管理
+const [internalState, setInternalState] = useState<StateType>(initialValue);
+
+// 外部访问引用
+const externalRef = useRef<StateType>(initialValue);
+
+// 同步 ref 和 state
+useEffect(() => {
+    externalRef.current = internalState;
+}, [internalState]);
+```
+
+## 性能优化要求
+- 使用 `useCallback` 包装事件处理函数
+- 使用 `useMemo` 优化复杂计算
+- 正确设置依赖数组
+- 避免在每次渲染时创建新对象
+
+## 错误处理
+- 检查对象存在性：`if (!customDocument || !customWindow) return;`
+- 使用可选链操作符：`object?.property?.subProperty`
+- 使用类型断言：`const element = node as Element;`

@@ -1,0 +1,48 @@
+# Hooksy Hooks 开发规范
+
+## 项目结构
+Hooksy 是一个 React hooks 库，每个 hook 必须遵循统一的开发规范。
+
+## 文件结构要求
+每个 hook 必须包含以下 4 个文件：
+- `index.tsx` - 主要实现文件
+- `type.ts` - 类型定义文件
+- `index.spec.tsx` - 测试文件
+- `README.md` - 中文使用文档
+
+## 代码组织规范
+1. **导入顺序**: React hooks → 类型导入 → 其他导入
+2. **函数顺序**: 工具函数 → 主 hook 函数 → 类型导出
+3. **状态管理**: 使用 `useState` 管理内部状态，`useRef` 提供外部访问
+4. **性能优化**: 使用 `useCallback` 优化函数引用，正确清理事件监听器
+
+## 命名规范
+- Hook 函数: `use` + PascalCase (如 `useActiveElement`)
+- 选项接口: `Use` + Hook名 + `Options` (如 `UseActiveElementOptions`)
+- 配置接口: `Configurable` + 对象类型 (如 `ConfigurableWindow`)
+
+## 类型安全要求
+- 完整的 TypeScript 类型定义
+- 泛型类型约束
+- 详细的 JSDoc 注释
+- 导出所有相关类型
+
+## 测试要求
+- 使用中文测试描述
+- 完整的测试覆盖（基本功能、配置选项、边界情况、生命周期）
+- 模拟 DOM 环境和浏览器 API
+- 使用 vitest 和 @testing-library/react
+
+## 文档要求
+- 中文文档
+- 功能特性列表
+- 基本用法和高级用法示例
+- 实际应用场景
+- 注意事项和浏览器兼容性
+
+参考完整规范文档：[HOOKS_DEVELOPMENT_GUIDE.md](mdc:packages/core/HOOKS_DEVELOPMENT_GUIDE.md)
+快速参考：[HOOKS_QUICK_REFERENCE.md](mdc:packages/core/HOOKS_QUICK_REFERENCE.md)
+description:
+globs:
+alwaysApply: false
+---

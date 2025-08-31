@@ -1,0 +1,58 @@
+---
+alwaysApply: true
+---
+
+# Hooksy 项目概览
+
+## 项目简介
+Hooksy 是一个高质量的 React hooks 库，提供可复用、类型安全、性能优化的自定义 hooks。
+
+## 项目结构
+```
+Hooksy/
+├── packages/
+│   └── core/                    # 核心 hooks 包
+│       ├── src/
+│       │   └── hooks/          # hooks 实现
+│       │       ├── elements/   # DOM 元素相关 hooks
+│       │       │   └── useActiveElement/  # 示例 hook
+│       │       ├── state/      # 状态管理 hooks
+│       │       └── ...         # 其他分类
+│       ├── tests/              # 测试文件
+│       └── package.json
+├── docs/                       # 项目文档
+├── HOOKS_DEVELOPMENT_GUIDE.md # 开发规范
+├── HOOKS_QUICK_REFERENCE.md   # 快速参考
+└── README.md                   # 项目说明
+```
+
+## 核心原则
+1. **一致性**: 所有 hooks 遵循统一的开发规范
+2. **类型安全**: 完整的 TypeScript 支持
+3. **性能优化**: 使用 React 最佳实践
+4. **测试覆盖**: 完整的测试用例
+5. **中文文档**: 便于中文开发者使用
+
+## 技术栈
+- **框架**: React 18+
+- **语言**: TypeScript
+- **测试**: Vitest + @testing-library/react
+- **构建**: Tsup
+- **包管理**: pnpm + workspace
+
+## 开发规范
+- 每个 hook 必须包含 4 个文件：实现、类型、测试、文档
+- 使用中文测试描述和文档
+- 完整的类型定义和 JSDoc 注释
+- 性能优化和错误处理
+
+## 质量保证
+- 统一的代码结构和命名规范
+- 完整的测试覆盖
+- 详细的文档说明
+- 性能优化最佳实践
+
+## 参考文档
+- [开发规范](mdc:packages/core/HOOKS_DEVELOPMENT_GUIDE.md)
+- [快速参考](mdc:packages/core/HOOKS_QUICK_REFERENCE.md)
+- [useActiveElement 示例](mdc:packages/core/src/hooks/elements/useActiveElement/)
